@@ -1,0 +1,118 @@
+````md
+# Exercícios 21.1 e 21.2 — Bratko
+
+Resolução dos exercícios 21.1 e 21.2 do capítulo 21 do livro *Programming for Artificial Intelligence* de Ivan Bratko.
+
+O projeto utiliza SWI-Prolog para representar os exemplos, hipóteses e refinement steps discutidos nos exercícios.
+
+---
+
+# Arquivos do Projeto
+
+- `ex21_1.pl`
+  - Implementação do exercício 21.1
+  - Base de conhecimento e hipótese `has_daughter/1`
+
+- `ex21_2.pl`
+  - Implementação do exercício 21.2
+  - Representação dos refinement steps
+
+- `howto.md`
+  - Guia passo a passo para execução
+
+---
+
+# Requisitos
+
+- SWI-Prolog
+
+Download oficial:
+
+https://www.swi-prolog.org/download/stable
+
+---
+
+# Como Executar
+
+Abrir o SWI-Prolog:
+
+```bash
+swipl
+````
+
+Carregar o exercício 21.1:
+
+```prolog
+[ex21_1].
+```
+
+Executar testes:
+
+```prolog
+has_daughter(tom).
+```
+
+Resultado esperado:
+
+```prolog
+true.
+```
+
+Outro teste:
+
+```prolog
+has_daughter(ann).
+```
+
+Resultado esperado:
+
+```prolog
+false.
+```
+
+---
+
+# Exercício 21.1
+
+O exercício explora o comportamento do algoritmo MINIHYPER ao modificar conjuntos de exemplos positivos e negativos relacionados ao predicado `has_daughter`.
+
+A hipótese aprendida foi:
+
+```prolog
+has_daughter(X) :-
+    parent(X,Y),
+    female(Y).
+```
+
+Foram observados efeitos como:
+
+* perda de generalização ao remover exemplos
+* inconsistências ao adicionar exemplos contraditórios
+* melhora da generalização ao aumentar a base de exemplos
+
+---
+
+# Exercício 21.2
+
+O exercício consiste em identificar quantos refinement steps são necessários para transformar a hipótese inicial na hipótese alvo.
+
+Resultado encontrado:
+
+```text
+3 refinement steps
+```
+
+Refinamentos realizados:
+
+1. Adição de `parent(A,C)`
+2. Adição de `predecessor(C,B)`
+3. Adição de `parent(D,E)`
+
+---
+
+# Autor
+
+Augusta Bezerra
+
+```
+```
